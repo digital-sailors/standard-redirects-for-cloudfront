@@ -1,0 +1,22 @@
+{
+  "name": "standard-redirects-for-cloudfront",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test-coverage": "istanbul cover _mocha",
+    "predeploy": "git log -1 --pretty=format:'{ \"date\":\"%cI\", \"commit\":\"%H\" }' > git-commit.json",
+    "deploy": "zip -r LATE-standard-redirects-for-cloudfront.zip . -i \\*.js -i git-commit.json -i node_modules/\\* -x test/\\* -x node_modules/aws-sdk/\\* -x node_modules/mocha/\\* && echo Uploading... && aws lambda update-function-code --region us-east-1 --function-name LATE-standard-redirects-for-cloudfront --zip-file fileb://LATE-standard-redirects-for-cloudfront.zip --publish"
+  },
+  "dependencies": {},
+  "license": "Apache-2.0",
+  "author": {
+    "name": "DigitalSailors e.K.",
+    "email": "contact@digital-sailors.de",
+    "url": "https://www.digital-sailors.de"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
