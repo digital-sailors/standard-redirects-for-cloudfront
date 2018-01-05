@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  StandardRedirectsForCloudFront:
+    Properties:
+      CodeUri: s3://public.digital-sailors.de/serverless-application-repo/standard-redirects-for-cloudfront//f67fc421792d57dd0adf0dbb485b974a
+      Description: Standard Redirects for CloudFront by Digital Sailors via the Serverless
+        Application Repository
+      Handler: index.handler
+      MemorySize: 128
+      Runtime: nodejs6.10
+      Timeout: 3
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

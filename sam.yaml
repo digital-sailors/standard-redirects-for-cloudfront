@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  StandardRedirectsForCloudFront:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository'
+      MemorySize: 128
+      Timeout: 3
