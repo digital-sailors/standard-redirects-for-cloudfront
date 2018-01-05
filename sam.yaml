@@ -1,11 +1,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
+Outputs:
+  StandardRedirectsForCloudFrontVersionOutput:
+    Description: The ARN of the function, including the version
+    Value: 
+      Ref: DeployedFunction
+    Export:
+      Name: StandardRedirectsForCloudFrontARN
 Resources:
   StandardRedirectsForCloudFront:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
       Runtime: nodejs6.10
-      Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository'
+      Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository.'
       MemorySize: 128
       Timeout: 3
