@@ -16,8 +16,6 @@
   limitations under the License.
 */
 
-const http = require('http');
-
 exports.handler = (event, context, callback) => {
   const request = event.Records[0].cf.request;
   
