@@ -57,15 +57,6 @@ Make sure that your CloudFront distribution handles the URL "/" directly by havi
 6. In CloudFront edit a **Behaviour** and add a **Lambda Function Association** of type "Event Type" and enter the Lambda function ARN from the previous step.
 7. Wait for the CloudFront distribution to deploy.
 
-
-### Manual installation
-
-1. Create a function called "LATE-standard-redirects-for-cloudfront" in N. Virginia (us-east-1)
-2. Run "npm run deploy"
-
-This function assumes that your CloudFront distribution handles the URL "/" directly by having the property "Default Root Object"
-set to "index.html". 
-
 ### Contact
 
 For any questions or comments, do contact us!
