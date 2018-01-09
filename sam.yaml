@@ -16,3 +16,9 @@ Resources:
       Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository.'
       MemorySize: 128
       Timeout: 3
+  DeployedFunction:
+    Type: AWS::Lambda::Version
+    Properties:
+      Description: The deployed version of the function
+      FunctionName:
+        Ref: StandardRedirectsForCloudFront
