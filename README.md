@@ -1,6 +1,6 @@
 # standard-redirects-for-cloudfront
 
-A Lambda@Edge function that implements standard web server redirects that simplify directory handling. 
+A Lambda@Edge function that implements standard web server redirects that simplify directory handling.
 
 For example, requests for URI paths that end in "/" are rewritten into "/index.html" before the request is passed on to the CloudFront Origin. You may think of that as an "internal" redirect in webserver terms.
 
@@ -54,7 +54,7 @@ Make sure that your CloudFront distribution handles the URL "/" directly by havi
 (This allows CloudFront to execute this function as a Lambda@Edge function.)
 
 5. Select the Output Value, this is the ARN (including the version) for the Lambda function.
-6. In CloudFront edit a **Behaviour** and add a **Lambda Function Association** of type "Event Type" and enter the Lambda function ARN from the previous step.
+6. In CloudFront edit a **Behaviour** and add a **Lambda Function Association** with the *Event Type* "Origin Request" and enter the Lambda function ARN from the previous step.
 7. Wait for the CloudFront distribution to deploy.
 
 ### Contact
