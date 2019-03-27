@@ -12,7 +12,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs6.10
+      Runtime: nodejs8.10
       Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository.'
       MemorySize: 128
       Timeout: 3
