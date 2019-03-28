@@ -16,6 +16,7 @@ Resources:
       Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository.'
       MemorySize: 128
       Timeout: 3
+      AutoPublishAlias: 'CurrentProd'
   DeployedFunction:
     Type: AWS::Lambda::Version
     Properties:
