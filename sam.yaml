@@ -3,8 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Outputs:
   StandardRedirectsForCloudFrontVersionOutput:
     Description: The ARN of the function, including the version
-    Value: 
-      Ref: DeployedFunction
+    Value: !Ref StandardRedirectsForCloudFront.Version
     Export:
       Name: StandardRedirectsForCloudFrontARN
 Resources:
@@ -17,9 +16,3 @@ Resources:
       MemorySize: 128
       Timeout: 3
       AutoPublishAlias: 'CurrentProd'
-  DeployedFunction:
-    Type: AWS::Lambda::Version
-    Properties:
-      Description: The deployed version of the function
-      FunctionName:
-        Ref: StandardRedirectsForCloudFront

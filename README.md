@@ -24,6 +24,14 @@ It allows you to have very nice outward facing URLs like "/cooltopic", that inte
 
 Make sure that your CloudFront distribution handles the URL "/" directly by having the property "Default Root Object" set to "index.html".
 
+## Updating
+
+1. Install the application "standard-redirects-for-cloudfront".
+2. Go to the Cloudformation Console
+3. Select the Output Value, this is the ARN (including the version) for the Lambda function.
+4. In CloudFront edit a **Behaviour** and add a **Lambda Function Association** with the *Event Type* "Origin Request" and enter the Lambda function ARN from the previous step.
+5. Wait for the CloudFront distribution to deploy.
+
 ## Installation
 
 ### Installation via the Serverless Application Repository

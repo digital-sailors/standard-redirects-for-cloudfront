@@ -6,3 +6,4 @@ npm-debug.log
 git-commit.json
 .vscode
 standard-redirects-for-cloudfront-sam.yaml
+standard-redirects-for-cloudfront-sam-test.yaml
