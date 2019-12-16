@@ -1,7 +1,7 @@
 'use strict';
 
 /*
-  Copyright 2017 DigitalSailors e.K.
+  Copyright 2017-2019 DigitalSailors e.K.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 exports.handler = (event, context, callback) => {
   const request = event.Records[0].cf.request;
-  
+
   let prefixPath; // needed for 2nd condition
 
   if (request.uri.match('.+/$')) {

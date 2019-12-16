@@ -10,11 +10,11 @@ URI paths that do not have an extension and do not end with a "/" are redirected
 
 ## Examples
 
-  /foo/bar/ -> internal redirect -> /foo/bar/index.html  
-  /foo -> external redirect (301) -> /foo/ -> internal redirect -> /foo/index.html  
-  /foo.html -> no redirect  
-  /foo/bar.html -> no redirect  
-  /foo/index.html -> external redirect (301) -> /foo/  
+  /foo/bar/ -> internal redirect -> /foo/bar/index.html
+  /foo -> external redirect (301) -> /foo/ -> internal redirect -> /foo/index.html
+  /foo.html -> no redirect
+  /foo/bar.html -> no redirect
+  /foo/index.html -> external redirect (301) -> /foo/
 
 ## Notes
 
@@ -25,6 +25,12 @@ It allows you to have very nice outward facing URLs like "/cooltopic", that inte
 Make sure that your CloudFront distribution handles the URL "/" directly by having the property "Default Root Object" set to "index.html".
 
 ## Updating
+
+### Lambda Runtime
+
+This package uses the `nodejs10.x` Node.js 10 Runtime. Updating the package in your AWS account requires one manual step, which is outlined below.
+
+### Procedure
 
 1. Install the application "standard-redirects-for-cloudfront".
 2. Go to the Cloudformation Console
@@ -69,7 +75,7 @@ Make sure that your CloudFront distribution handles the URL "/" directly by havi
 
 For any questions or comments, do contact us!
 
-Email: contact@digital-sailors.de  
+Email: contact@digital-sailors.de
 Web: https://www.digital-sailors.de/
 
 Enjoy!
