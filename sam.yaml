@@ -13,6 +13,31 @@ Resources:
       Handler: index.handler
       Runtime: nodejs10.x
       Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository.'
+      Role: !GetAtt LambdaRole.Arn
       MemorySize: 128
       Timeout: 3
       AutoPublishAlias: 'CurrentProd'
+
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+              - edgelambda.amazonaws.com
+          Action: sts:AssumeRole
+      Policies:
+        - PolicyName: edgelambda-policy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: '*'

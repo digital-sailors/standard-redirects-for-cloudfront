@@ -44,32 +44,9 @@ This package uses the `nodejs10.x` Node.js 10 Runtime. Updating the package in y
 
 1. Install the application "standard-redirects-for-cloudfront".
 2. Go to the Cloudformation Console
-3. Select the created role (which brings you to the IAM console)
-4. edit the trust relationship, set the policy to:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": [
-          "lambda.amazonaws.com",
-          "edgelambda.amazonaws.com"
-        ]
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
-
-(This allows CloudFront to execute this function as a Lambda@Edge function.)
-
-5. Select the Output Value, this is the ARN (including the version) for the Lambda function.
-6. In CloudFront edit a **Behaviour** and add a **Lambda Function Association** with the *Event Type* "Origin Request" and enter the Lambda function ARN from the previous step.
-7. Wait for the CloudFront distribution to deploy.
+3. Select the Output Value, this is the ARN (including the version) for the Lambda function.
+4. In CloudFront edit a **Behaviour** and add a **Lambda Function Association** with the *Event Type* "Origin Request" and enter the Lambda function ARN from the previous step.
+5. Wait for the CloudFront distribution to deploy.
 
 ### Contact
 
