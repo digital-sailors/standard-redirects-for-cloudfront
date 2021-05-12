@@ -20,6 +20,7 @@ exports.handler = (event, context, callback) => {
   const request = event.Records[0].cf.request;
 
   let prefixPath; // needed for 2nd condition
+  let new_url; // url without double slashes
 
   if (request.uri.match('.+/$')) {
     request.uri += 'index.html';
@@ -36,12 +37,13 @@ exports.handler = (event, context, callback) => {
     };
     callback(null, response);
   } else if (request.uri.match('/[^/.]+$')) {
+    new_url = request.uri.replace(/\/\//g, "/");
     const response = {
       status: '301',
       statusDescription: 'Found',
       headers: {
         location: [{
-          key: 'Location', value: request.uri + '/',
+          key: 'Location', value: new_url + '/',
         }],
       }
     };
