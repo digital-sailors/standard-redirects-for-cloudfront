@@ -1,7 +1,7 @@
 'use strict';
 
 /*
-  Copyright 2017-2019 DigitalSailors e.K.
+  Copyright 2017-2021 DigitalSailors e.K.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -25,23 +25,25 @@ exports.handler = (event, context, callback) => {
     request.uri += 'index.html';
     callback(null, request);
   } else if (prefixPath = request.uri.match('(.+)/index.html')) {
+    const modifiedPrefixPath = prefixPath[1].replace(/^\/+/, '/');
     const response = {
       status: '301',
       statusDescription: 'Found',
       headers: {
         location: [{
-          key: 'Location', value: prefixPath[1] + '/',
+          key: 'Location', value: modifiedPrefixPath + '/',
         }],
       }
     };
     callback(null, response);
   } else if (request.uri.match('/[^/.]+$')) {
+    const modifiedRequestURI = request.uri.replace(/^\/+/, '/');
     const response = {
       status: '301',
       statusDescription: 'Found',
       headers: {
         location: [{
-          key: 'Location', value: request.uri + '/',
+          key: 'Location', value: modifiedRequestURI + '/',
         }],
       }
     };

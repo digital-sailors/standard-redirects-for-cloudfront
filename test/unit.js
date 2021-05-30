@@ -56,7 +56,7 @@ describe('Testing index.js', function() {
       done(assert.strictEqual(data.uri, '/foo/bar/index.html'));
     });
   });
-  
+
   it('/foo -> external redirect (301) -> /foo/', function(done) {
     const event = {
       Records:[{ cf: {
@@ -65,7 +65,7 @@ describe('Testing index.js', function() {
           }
         } }] };
     index.handler(event, {}, (err, data) => {
-      done(assert.strictEqual(data.status, '301') 
+      done(assert.strictEqual(data.status, '301')
           || assert.strictEqual(data.headers.location[0].key, 'Location')
           || assert.strictEqual(data.headers.location[0].value, '/foo/'));
     });
@@ -101,9 +101,38 @@ describe('Testing index.js', function() {
           }
         } }] };
     index.handler(event, {}, (err, data) => {
-      done(assert.strictEqual(data.status, '301') 
+      done(assert.strictEqual(data.status, '301')
           || assert.strictEqual(data.headers.location[0].key, 'Location')
           || assert.strictEqual(data.headers.location[0].value, '/foo/'));
     });
   });
+
+  it('//foo/index.html -> external redirect (301) -> /foo/', function(done) {
+    const event = {
+      Records:[{ cf: {
+          request:  {
+            uri: '//foo/index.html'
+          }
+        } }] };
+    index.handler(event, {}, (err, data) => {
+      done(assert.strictEqual(data.status, '301')
+          || assert.strictEqual(data.headers.location[0].key, 'Location')
+          || assert.strictEqual(data.headers.location[0].value, '/foo/'));
+    });
+  });
+
+  it('///foo -> external redirect (301) -> /foo/', function(done) {
+    const event = {
+      Records:[{ cf: {
+          request:  {
+            uri: '//foo/index.html'
+          }
+        } }] };
+    index.handler(event, {}, (err, data) => {
+      done(assert.strictEqual(data.status, '301')
+          || assert.strictEqual(data.headers.location[0].key, 'Location')
+          || assert.strictEqual(data.headers.location[0].value, '/foo/'));
+    });
+  });
+
 });
