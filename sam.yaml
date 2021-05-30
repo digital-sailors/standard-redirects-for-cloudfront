@@ -11,7 +11,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs14.x
       Description: 'Standard Redirects for CloudFront by Digital Sailors via the Serverless Application Repository.'
       Role: !GetAtt LambdaRole.Arn
       MemorySize: 128
