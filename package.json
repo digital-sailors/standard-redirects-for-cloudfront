@@ -18,6 +18,6 @@
     "url": "https://www.digital-sailors.de"
   },
   "devDependencies": {
-    "mocha": "^8.4.0"
+    "mocha": "^11.7.6"
   }
 }
